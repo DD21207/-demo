@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>demo</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+#header{
+	position: fixed;
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+	background-color: black;
+	width: 100%;
+	color: white;
+	display: -webkit-flex;
+	top: 0;
+	z-index: 10;
+
+}
+.address{
+	position: absolute;
+	color: white;
+	width: 50px;
+}
+.address div{
+	display: inline-block;
+	margin:0 2px;
+}
+.span1{
+	transform: rotate(90deg);
+	-ms-transform: rotate(90deg);		
+	-webkit-transform: rotate(90deg);	
+	-o-transform: rotate(90deg);		
+	-moz-transform: rotate(90deg);	
+}
+.bar{
+	-webkit-flex:2;
+	display: block;
+	margin-left: 26px;
+	font-weight: bolder;
+	font-size: 14px;
+}
+.search{
+	padding-top: 7px;
+	width: 20px;
+	margin-right: 5px;
+}
+
+#nav{
+	display: -webkit-flex;
+	display: flex;
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+	background-color: #F5F5F5;
+	border-bottom: 1px solid lightgrey;
+	position: fixed;
+	width: 100%;
+	top: 40px;
+	z-index: 10;
+}
+.near{
+	flex:1;
+	-webkit-flex:1;	
+	font-weight: bold;
+}
+.line{
+	color: lightgrey;
+}
+.smart{
+	flex:1;
+	-webkit-flex:1;
+	font-weight: bold;
+}
+#menu{
+	position: absolute;
+	width: 100%;
+	height: auto;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 12px;
+	color: #696969;
+	top: 81px;
+	z-index: 10;
+}
+#menu li{
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	
+}
+.near-box1{
+	/*-webkit-flex:1;
+	flex:1;*/
+	width: 50%;
+	background-color: #F5F5F5;
+	text-align: left;
+	text-indent: 1em;
+	overflow: hidden;
+	display: none;
+	border-bottom: 1px solid lightgrey; 
+}
+.near-box2{
+/*	-webkit-flex:1;
+	flex:1;*/
+	width: 50%;
+	background-color: white;
+    padding-left: 10px;
+    display: none;
+    border-bottom: 1px solid lightgrey; 
+}
+.near-box2 li{
+	border-bottom: 1px solid lightgrey;
+}
+#container{
+	position: relative;
+	top: 80px;
+	padding: 10px;
+	z-index: -10;
+}
+.box{
+    float: left;
+    background-color: white;
+    width: 44%;
+    margin-left: 3%;
+    margin-right: 3%;
+    box-shadow: 0 0 5px #ccc;
+    position: relative;
+}
+.box img{
+     width: 100%;
+}
+
+#footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	background-color:black;
+	width:100%;
+	color: white;
+	font-size: 12px;
+	height: 40px;
+	display: -webkit-flex;
+	display: flex;
+}
+#footer div{
+	flex:1;
+	-webkit-flex:1;
+	padding: 2px;
+
+}
+.zhedan{
+	width: 100%;
+	height: 600px;
+	top: 80px;
+	background-color: black;
+	z-index: 5;
+	filter:alpha(opacity=60); 
+ 	-moz-opacity:0.6; 
+ 	opacity:0.6; 
+ 	position: absolute;
+ 	display: none;
+}
+
+</style>
+</head>
+<body>
+<div id="header">
+	<div class="address">
+		<div>深圳</div><div class="span1">></div>
+	</div>
+	<div class="bar">
+		<p>酒吧街</p>
+	</div>
+	<div class="search">
+		<img src="img/2.png" width="18px" height="18px">
+	</div>
+</div>
+
+<div id="nav">
+	<div class="near">
+		<p>附近</p>
+		<div></div>
+	</div>
+	<div class="line">|</div>
+	<div class="smart">
+		<p>智能</p>
+		<div></div>
+	</div>
+</div>
+<div id="menu" >
+		<div class="near-box1" >
+			<ul>
+				<li class="li-1">附近</li>
+				<li>全城热门商区</li>
+				<li>宝安区</li>
+				<li>福田区</li>
+				<li>南山区</li>
+				<li>罗湖区</li>
+			</ul>
+		</div>
+		<div class="near-box2" >
+			<ul>
+				<li style="color:orange;border-bottom:1px solid orange">附近（智能范围）</li>
+				<li>500米</li>
+				<li>1000米</li>
+				<li>2000米</li>
+				<li>5000米</li>
+			</ul>
+		</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".near").click(function(){
+		$(".near-box1").toggle();
+		$(".li-1").click(function(){
+			$(".li-1").css("background-color","white");
+			$(".near-box2").toggle();
+		})
+		$(".zhedan").toggle();
+	})
+
+})
+</script>
+<div class="zhedan">
+
+</div>
+<div id="container">
+        <div class="box">
+        <img class="img" src="img/b1.jpg" height="150px"/>
+        <div class="desc">me</div>
+    </div>
+    <div class="box">
+        <img class="img" src="img/b2.jpg"  height="168px"/>
+        <div class="desc">Kobe</div>
+    </div>
+    <div class="box">
+        <img class="img" src="img/b3.jpg" height="168px"/>
+        <div class="desc">KobeKobe</div>
+    </div>
+    <div class="box">
+        <img class="img" src="img/b4.jpg"  height="200px"/>
+        <div class="desc">KobeKobeKobeKobe</div>
+    </div>
+    <div class="box">
+        <img class="img" src="img/b5.jpg"  height="200px"/>
+        <div class="desc">KobeKobeKobe</div>
+    </div>
+    <div class="box">
+        <img class="img" src="img/b6.jpg"  height="150px"/>
+        <div class="desc">Kobe</div>
+    </div>
+</div>
+
+<div id="footer">
+	<div>
+		<img src="img/4.png" width="20px" height="20px">
+		<p>现场游戏</p>
+	</div>
+	<div>
+		<img src="img/5.jpg" width="20px" height="20px">
+		<p>酒吧街</p>
+	</div>
+	<div>
+		<img src="img/6.jpg" width="20px" height="20px">
+		<p>个人中心</p>
+	</div>
+</div>
+</body>
+</html>
